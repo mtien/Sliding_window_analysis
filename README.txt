@@ -44,15 +44,14 @@ Sliding Window analysis:
 
 		As described in the Materials and Methods section of RNA-seq analysis of mRNAs that co-elute with GsrN doi: 
 		https://doi.org/10.1101/212902 RNA-seq analysis of mRNAs that co-elute with GsrN, removal occurred before 
-		analysis
-		by DESeq in order to decrease the False Positive Rate and to balance the read density between the PP7 
-		purifications.
-		The script that corresponds to this process is called remove_high_variant_windows.py. This script takes in the 
-		"RPKM_compiled_slidingWindow.txt" file. This file is zipped on the GitHub under the data_files folder.
+		analysis by DESeq in order to decrease the False Positive Rate and to balance the read density between the PP7 
+		purifications. The script that corresponds to this process is called remove_high_variant_windows.py. This 
+		script takes in the "RPKM_compiled_slidingWindow.txt" file. This file is zipped on the GitHub under the 
+		data_files folder.
 	
 		After removal of inconsistent windows, a DESeq script is run called, deSeq.R. This generates a table of all 
-		sliding windows
-		and their significance as judged by the DESeq software package.
+		sliding windows and their significance as judged by the DESeq software package. This does require that 
+		the DESeq R-package is available.
 
 		After the DESeq estimates the significance of each sliding window, the assign analysis.py will take the DESeq 
 		output file and do a similar analysis to the Rockhopper analysis script, parse_Rhopper_transcript_file.py.
