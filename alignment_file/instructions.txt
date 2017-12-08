@@ -1,0 +1,3 @@
+This will be the directory to place the bowtie output file after mapping read files (https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE106171) to Caulobacter's genome.
+
+The ".hits" file should also be put here after the alignment file is parsed with 'awk'
