@@ -29,9 +29,11 @@ Sliding Window analysis:
 		interest. It also contains methods to combine adjacent sliding windows. 
 
 		check_bowtie_alignment.py contains a series of methods to parse a bowtie alignment file (".hits") 
-		that has already been parsed to contain the following FLAGS: 0, 256, 16, 272. Unix command line used to generate a bowtie "hits" file:
+		that has already been parsed to contain the following FLAGS: 0, 256, 16, 272. Unix command line used to 
+		generate a bowtie "hits" file:
 		awk '{split($0,arr,\"\\t\"); if(arr[2]==\"0\" || arr[2]==\"256\" || arr[2]==\"16\" || arr[2]==\"272\") print $0}' MZT_sense1.alignments > MZT_sense1.alignments.hits
-		where MZT_sense1.alignments correspond to the bowtie output file generated from running the EDGE-pro software package.
+		where MZT_sense1.alignments correspond to the bowtie output file generated from running the EDGE-pro software 
+		package.
 
 		synthesize_information.py is a variant of the assign_window library, but helps incorporate the
 		information from the check_bowtie_alignment library.
@@ -39,19 +41,22 @@ Sliding Window analysis:
 	A series of python scripts utilized the libraries to perform the sliding window analysis.
 
 		As described in the Materials and Methods section of RNA-seq analysis of mRNAs that co-elute with GsrN doi: 
-		https://doi.org/10.1101/212902 RNA-seq analysis of mRNAs that co-elute with GsrN, removal occurred before analysis
-		by DESeq in order to decrease the False Positive Rate and to balance the read density between the PP7 purifications.
+		https://doi.org/10.1101/212902 RNA-seq analysis of mRNAs that co-elute with GsrN, removal occurred before 
+		analysis
+		by DESeq in order to decrease the False Positive Rate and to balance the read density between the PP7 
+		purifications.
 		The script that corresponds to this process is called remove_high_variant_windows.py. This script takes in the 
 		"RPKM_compiled_slidingWindow.txt" file. This file is zipped on the GitHub under the data_files folder.
 	
-		After removal of inconsistent windows, a DESeq script is run called, deSeq.R. This generates a table of all sliding windows
+		After removal of inconsistent windows, a DESeq script is run called, deSeq.R. This generates a table of all 
+		sliding windows
 		and their significance as judged by the DESeq software package.
 
-		After the DESeq estimates the significance of each sliding window, the assign analysis.py will take the DESeq output file and do
-		a similar analysis to the Rockhopper analysis script, parse_Rhopper_transcript_file.py.
+		After the DESeq estimates the significance of each sliding window, the assign analysis.py will take the DESeq 
+		output file and do a similar analysis to the Rockhopper analysis script, parse_Rhopper_transcript_file.py.
 		assign_analysis utilizes the three libraries: assign_window, check_bowtie_alignment, and
-		synthesize_information to create the results file ("Sliding_Window_analysis_results.txt") of the sliding window analysis.
-		The script will generate several intermediate files and produces the resulting file.
+		synthesize_information to create the results file ("Sliding_Window_analysis_results.txt") of the sliding window 
+		analysis. The script will generate several intermediate files and produces the resulting file.
 
 Combined analysis:
 
@@ -60,9 +65,9 @@ Combined analysis:
 	which will take one of the intermediate files from the sliding window analysis and breaks the windows down into a
 	new "windowInfo.txt" file. 
 	
-	The script corroborate_SW_Rhopper.py takes the "windowInfo.txt" file and the "transcripts_criterion.txt" file and generates
-	several files that show which genes overlap in these two separate analyses. The files "RhopperCongruent.txt" and 
-	"RhopperNotCongruent.txt" were used to generate Figure 5D in doi: https://doi.org/10.1101/212902 using the R script,
+	The script corroborate_SW_Rhopper.py takes the "windowInfo.txt" file and the "transcripts_criterion.txt" file and 
+	generates several files that show which genes overlap in these two separate analyses. The files "RhopperCongruent.txt" 
+	and "RhopperNotCongruent.txt" were used to generate Figure 5D in doi: https://doi.org/10.1101/212902 using the R script,
 	make_sliding_window_figure.R.
 	
 	The final script, make_final_results_table.py, takes the two output files of the sliding window analysis and 
