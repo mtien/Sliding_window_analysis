@@ -32,8 +32,10 @@ Sliding Window analysis:
 		that has already been parsed to contain the following FLAGS: 0, 256, 16, 272. Unix command line used to 
 		generate a bowtie "hits" file:
 		awk '{split($0,arr,\"\\t\"); if(arr[2]==\"0\" || arr[2]==\"256\" || arr[2]==\"16\" || arr[2]==\"272\") print $0}' MZT_sense1.alignments > MZT_sense1.alignments.hits
-		where MZT_sense1.alignments correspond to the bowtie output file generated from running the EDGE-pro software 
-		package.
+		where "MZT_sense1.alignments" correspond to the bowtie output file generated from running the EDGE-pro software 
+		package. If you would like to rerun the analysis, you will have to align one of the read files (.fastq)
+		to Caulobacter's genome sequence with bowtie. After the file is aligned, you will have to run the following 
+		command line and label the file as "MZT_sense1.alignments.hits"
 
 		synthesize_information.py is a variant of the assign_window library, but helps incorporate the
 		information from the check_bowtie_alignment library.
