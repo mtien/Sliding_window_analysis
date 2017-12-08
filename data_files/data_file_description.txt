@@ -1,1 +1,1 @@
-
+The file "RPKM_compiled_slidingWindow.txt" contains the estimated RPKM values for each sliding window from reads in https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE106171 and reads from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE106168. The file is tab-delimited.
