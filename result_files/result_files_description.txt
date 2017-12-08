@@ -1,1 +1,1 @@
-
+This folder will contain the important output files from running all analysis scripts
